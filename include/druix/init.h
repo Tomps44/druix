@@ -1,9 +1,15 @@
 #pragma once
 
-#include "./internal/setup.h"
+#include "pub-fwd.h"
 
 namespace dx
 {
-    bool Init();
+    struct AppInitInfo
+    {
+        const char* appName = "Druix Application";
+        uint32_t appVersion = 1;
+    };
+
+    bool Init(const AppInitInfo& appInfo);
     void Shutdown();
 }

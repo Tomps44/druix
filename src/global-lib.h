@@ -1,18 +1,17 @@
 #pragma once
 
-#include "setup.h"
-
 #if defined(DX_BACKEND_VULKAN)
-    #include "vk/lib-data.h"
-#endif
+    #include "./vk/device.h"
 
-#define DX_BACKEND_NAMESPACE vulkan
+#elif defined(DX_BACKEND_D3D12)
+    #include "./d3d12/device.h"
+    
+#endif
 
 namespace dx
 {
     namespace dxIntern
     {
-        
         struct dxLib
         {
             DX_BACKEND_NAMESPACE::Device device;
